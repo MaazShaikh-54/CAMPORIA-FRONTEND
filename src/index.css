@@ -8,3 +8,11 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
+<<<<<<< Updated upstream
+=======
+body {
+  font-family: "Baloo Thambi 2", cursive;
+  font-size: 100%;
+  color: #2E2E2E;
+}
+>>>>>>> Stashed changes

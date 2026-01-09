@@ -2,7 +2,11 @@ import './navbar.css'
 import { useState } from 'react';
 import Button from '../Button/button'
 import { Link } from "react-router-dom";
+<<<<<<< Updated upstream
 import { Menu, Tent } from 'lucide-react';
+=======
+import { Tent } from 'lucide-react';
+>>>>>>> Stashed changes
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
