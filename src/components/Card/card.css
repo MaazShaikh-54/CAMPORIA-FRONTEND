@@ -1,6 +1,5 @@
 .campsite-card {
   width: 46%;
-<<<<<<< Updated upstream
   height: 100%;
   display: flex;
   border: 2px;
@@ -11,9 +10,9 @@
   background: #fff;
   flex-direction: column;
   border-radius: 15px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.09),
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.09),
     0 1px 3px 1px rgba(0, 0, 0, 0.15);
-  ;
   transition: all 0.2s ease-in-out;
 }
 
@@ -21,41 +20,6 @@
   transform: scale(1.02);
 }
 
-=======
-  /* border: 2px; */
-  /* padding: 0.5em; */
-  overflow: hidden;
-  border-radius: 5px;
-  position: relative;
-  margin-bottom: 1.2em;
-  /* background: #dedede3b; */
-  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
-}
-
-.campsite-card:hover {
-  /* background: #dedede !important; */
-  transform: scale(1.02);
-}
-
-.card-badge {
-  width: fit-content;
-  padding: 2px 8px;
-  color: #fff;
-  overflow: visible !important;
-  /* rotate: 330deg; */
-  border-bottom-right-radius: 10px;
-  font-size: small;
-  position: absolute;
-  background: #000000c9;
-  text-align: center;
-  
-}
-
-.campsite-card:hover .goToDetail {
-  background: #fff;
-}
-
->>>>>>> Stashed changes
 .campsite-image {
   width: 100%;
   height: 150px;
@@ -95,6 +59,7 @@
 }
 
 .campsite-name {
+  color: #0a0a0a;
   font-size: 1.5em;
   font-weight: 700;
 }
@@ -105,6 +70,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.review-count {
+  display: none;
 }
 
 .lucide-icon {
@@ -118,31 +87,29 @@
   margin-top: auto;
 }
 
-.campsite-amenities {
-  margin-block: 0.2em;
+.campsite-location {
   font-size: 0.7rem;
-  color: #6A6A6A;
+  color: #6a6a6a;
   font-weight: 500;
 }
 
-<<<<<<< Updated upstream
+.campsite-amenities {
+  margin-block: 0.2em;
+  font-size: 0.7rem;
+  color: #6a6a6a;
+  font-weight: 500;
+}
+
 .campsite-price {
   color: #0a0a0a;
   font-weight: 600;
   font-size: 0.8rem;
   line-height: 1.2rem;
-=======
-.goToDetail {
-  /* width: 28px; */
-  padding: 0.2rem;
-  /* border-radius: 50px; */
-  border: 1px solid #1a3692;
->>>>>>> Stashed changes
 }
 
 .campsite-price-text {
   font-size: 0.7rem;
-  color: #6A6A6A;
+  color: #6a6a6a;
   font-weight: 500;
 }
 
@@ -150,7 +117,7 @@
   margin-top: 0.8em;
   padding: 0.3em 0.6em;
   color: #fff;
-  background: #91A36F;
+  background: #91a36f;
   border-radius: 15px;
   border: none;
   font-size: 0.9rem;
@@ -190,7 +157,7 @@
 
   .campsite-name {
     font-size: 2.1em;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .review-star {
@@ -199,6 +166,12 @@
     font-size: 1.5em;
     flex-direction: row;
     align-items: center;
+  }
+
+  .review-count {
+    display: block;
+    font-size: 0.9em;
+    color: #6a6a6a;
   }
 
   .lucide-icon {
@@ -217,17 +190,15 @@
     font-size: 1rem;
   }
 
-<<<<<<< Updated upstream
+  .campsite-location {
+    font-size: 0.9rem;
+    color: #6a6a6a;
+    font-weight: 500;
+  }
+
   .campsite-amenities {
     margin-block: 0.3em;
     font-size: 0.9rem;
-=======
-  .goToDetail{
-    /* width: 35px; */
-    padding: 0.2rem;
-    border-radius: 10px;
-    border: 2px solid #1a3692;
->>>>>>> Stashed changes
   }
 
   .campsite-btn-book {

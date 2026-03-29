@@ -2,14 +2,12 @@ import './navbar.css'
 import { useState } from 'react';
 import Button from '../Button/button'
 import { Link } from "react-router-dom";
-<<<<<<< Updated upstream
 import { Menu, Tent } from 'lucide-react';
-=======
-import { Tent } from 'lucide-react';
->>>>>>> Stashed changes
+import Auth from '../Authentication/auth.jsx';
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
 
     const toggleMenu = () => {
         setMenu(true);
@@ -33,8 +31,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='auth-btn-container'>
-                        <Button className="auth-login" text="Login" />
-                        <Button className="auth-signup" text="Sign Up" />
+                        <Button className="auth-login" text="Login" onClick={() => setShowAuth(true)} />
+                        <Button className="auth-signup" text="Sign Up" onClick={() => setShowAuth(true)} />
                         <button className='menu-icon-btn' onClick={toggleMenu} >
                             <Menu color='#000' strokeWidth={3} className="menu-icon" />
                         </button>
@@ -51,6 +49,20 @@ const Navbar = () => {
                     </div>
                 )}
             </header>
+            {showAuth && (
+                <div className="auth-modal-overlay">
+                    <div className="auth-modal">
+                        <button
+                            className="close-btn"
+                            onClick={() => setShowAuth(false)}
+                        >
+                            X
+                        </button>
+
+                        <Auth onSuccess={() => setShowAuth(false)} />
+                    </div>
+                </div>
+            )}
         </>
     )
 }

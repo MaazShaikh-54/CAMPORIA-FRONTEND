@@ -290,11 +290,7 @@ const campsites = [
       description: "Rajmachi, Maharashtra, offers a thrilling camping experience with scenic views and historic forts.",
       price: 2100,
     checkin: 10,
-  checkout: 12,   },
-    {
-      id: 30,
-      campsiteName: "No data found", 
-    }
+  checkout: 12,   }
 
 ];
 export default campsites;

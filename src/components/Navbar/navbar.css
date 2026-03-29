@@ -4,10 +4,6 @@
   overflow: visible;
   position: relative;
   align-items: center;
-<<<<<<< Updated upstream
-=======
-  /* background-color: #f5f5f5; */
->>>>>>> Stashed changes
   padding: 0.25rem 0.5rem;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
@@ -141,8 +137,8 @@
     font-size: 0.85rem;
     font-weight: 600;
     padding: 1em 1.5em;
-    border-radius: 8px;
-    background: #f5f5f5;
+    border-radius: 25px;
+    background: #fff;
     border: 1px solid #999;
     transition: transform 0.3s ease-in-out;
   }
@@ -157,4 +153,140 @@
     color: #000;
     border: 1px solid #91a36f;
   }
+}
+/* Auth Dropdown */
+.auth-dropdown {
+  top: calc(100% + 12px);
+  right: 2rem;
+  z-index: 99;
+  width: 300px;
+  padding: 1.75rem;
+  background: #fff;
+  position: absolute;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-dropdown h2 {
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #0e1726;
+  margin-bottom: 0.15rem;
+  font-family: "Averia Serif Libre", serif;
+}
+
+.auth-dropdown-sub {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1.25rem;
+}
+
+.auth-field {
+  margin-bottom: 0.9rem;
+}
+
+.auth-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
+}
+
+.auth-field input {
+  width: 100%;
+  background: #fafafa;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.auth-field input:focus {
+  border-color: #91a36f;
+}
+
+.auth-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.7rem;
+  margin-top: 0.4rem;
+  border-radius: 25px;   /* tera existing button style */
+  color: #f8f9fa;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+  background: linear-gradient(to bottom right, #91A36F, #2D6A4F);
+}
+
+.auth-submit:hover {
+  opacity: 0.88;
+}
+
+.auth-toggle-text {
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.auth-toggle-text span {
+  color: #2D6A4F;
+  font-weight: 600;
+}
+
+.auth-toggle-text span:hover {
+  text-decoration: underline;
+}
+
+/* Active state for navbar buttons */
+.auth-login.active {
+  color: #2D6A4F;
+  border: 1.5px solid #2D6A4F;
+}
+
+.auth-signup.active {
+  background-color: #2D6A4F;
+}
+
+
+/* Auth Modal */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 350px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }

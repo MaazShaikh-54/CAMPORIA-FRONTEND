@@ -15,15 +15,9 @@ const shuffleArray = (array) => {
 
 const CampsiteList = () => {
   const [searchTerm, setSearchTerm] = useState("");
-<<<<<<< Updated upstream
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [numOfGuests, setNumOfGuests] = useState("");
-=======
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [numOfPerson, setNumOfPerson] = useState("");
->>>>>>> Stashed changes
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -45,7 +39,6 @@ const CampsiteList = () => {
     threshold: 0.4,
   });
 
-<<<<<<< Updated upstream
   const handleNumOfGuests = (event) => {
     setNumOfGuests(event.target.value);
     setErrorMessage(false);
@@ -56,18 +49,6 @@ const CampsiteList = () => {
   };
   const handleCheckOut = (event) => {
     setCheckOut(event.target.value);
-=======
-  const handleNumOfPerson = (event) => {
-    setNumOfPerson(event.target.value);
-    setErrorMessage(false);
-  };
-  const handleStartDate = (event) => {
-    setStartDate(event.target.value);
-    setErrorMessage(false);
-  };
-  const handleEndDate = (event) => {
-    setEndDate(event.target.value);
->>>>>>> Stashed changes
     setErrorMessage(false);
   };
   const handleSearchInput = (event) => {
@@ -108,7 +89,6 @@ const CampsiteList = () => {
   return (
     <div className="card-section">
       <div className="searchbox">
-<<<<<<< Updated upstream
         {/* <h1 className="campsite-tagline">Ignite your spirit of exploration</h1> */}
         <div className="advanced-search">
           <div className="search-bar">
@@ -153,45 +133,6 @@ const CampsiteList = () => {
             />
           </div>
         </div>
-=======
-        <input
-          type="search"
-          name="search"
-          placeholder="Search Destination.."
-          value={searchTerm}
-          onChange={handleSearchInput}
-          className="search-input"
-          onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
-        />
-        <input
-          type="date"
-          name="search"
-          placeholder="Start date"
-          value={startDate}
-          onChange={handleStartDate}
-          className="search-input"
-          onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
-        />
-        <input
-          type="date"
-          name="search"
-          placeholder="End date"
-          value={endDate}
-          onChange={handleEndDate}
-          className="search-input"
-          onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
-        />
-        <input
-          type="number"
-          name="search"
-          placeholder="Number of people"
-          value={numOfPerson}
-          onChange={handleNumOfPerson}
-          className="search-input"
-          onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
-        />
-        <Search color="#555" size={42} strokeWidth={2} className="search-btn" onClick={handleSearchClick} />
->>>>>>> Stashed changes
       </div>
 
       {errorMessage && <div className="error-placeholder" />}
