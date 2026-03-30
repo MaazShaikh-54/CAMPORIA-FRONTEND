@@ -31,43 +31,61 @@ const Auth = ({ onSuccess }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        {error && <p className="error">{error}</p>}
-        {isSignup && (
-          <>
-            <label>Full Name</label>
+      <div className="auth-container">
+        <h2 className=''>{isSignup ? "Create Account" : "Welcome Back"}</h2>
+
+        <form onSubmit={handleSubmit} className="auth-form">
+
+          {error && <p className="error">{error}</p>}
+
+          {isSignup && (
+            <div className="auth-field">
+              <label>Name</label>
+              <input
+                type="text"
+                value={name}
+                placeholder='Enter full name'
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          )}
+
+          <div className="auth-field">
+            <label>Email</label>
             <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="email"
+              value={email}
+              placeholder='Enter email'
+              onChange={(e) => setEmail(e.target.value)}
             />
-          </>
-        )}
+          </div>
 
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <div className="auth-field">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              placeholder='Enter password'
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <button className="auth-submit" type="submit">
+            {isSignup ? "Sign Up" : "Login"}
+          </button>
+        </form>
 
-        <button type="submit">
-          {isSignup ? "Sign Up" : "Login"}
-        </button>
-      </form>
-
-      <p onClick={() => setIsSignup(!isSignup)}>
-        {isSignup
-          ? "Already have an account? Login"
-          : "Don't have an account? Sign Up"}
-      </p>
+        <p
+          className="auth-toggle-text"
+          onClick={() => setIsSignup(!isSignup)}
+        >
+          {isSignup ? (
+            <>Already have an account? <span>Login</span></>
+          ) : (
+            <>Don't have an account? <span>Sign Up</span></>
+          )}
+        </p>
+      </div>
     </>
   );
 };

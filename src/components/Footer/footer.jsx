@@ -12,24 +12,29 @@ const Footer = () => {
                     <div className="footer-logo">
                         <Tent className="tent-logo" size={45} color="#fff" strokeWidth={1.3} />
                         <h1 className="footer-logo-txt">Camporia</h1>
-                        {/* <p className="brand-tagline">
-                            Your gateway to the wild — curated camping experiences across India.
-                        </p> */}
                     </div>
+                    <p className="brand-tagline">
+                        Your gateway to the wild — curated camping experiences across India.
+                    </p>
                     <div className="footer-links">
-                        <ul>
-                            <li className="footer-li-items"><Link to="/" id='link'>Home</Link></li>
-                            <li className="footer-li-items"><Link to="/blog" id='link'>Blog</Link></li>
-                            <li className="footer-li-items"><Link to="/aboutus" id='link'>About Us</Link></li>
-                            <li className="footer-li-items"><Link to="/help" id='link'>Help</Link></li>
-                            <li className="footer-li-items"><Link to="/bookings" id='link'>Bookings</Link></li>
-                        </ul>
-                        <div className="icons">
-                            <h2>CONNECT</h2>
-                            <div className="social-icons-grid">
-                                <Link to="/blog" className='social-btn'><Instagram className="ig" /></Link>
-                                <Link to="/blog" className='social-btn'><Twitter className="x" /></Link>
-                                <Link to="/blog" className='social-btn'><Youtube className="yt" /></Link>
+                        <div>
+                            <h2>explore</h2>
+                            <ul>
+                                <li className="footer-li-items"><Link to="/" id='link'>Home</Link></li>
+                                <li className="footer-li-items"><Link to="/blog" id='link'>Blog</Link></li>
+                                <li className="footer-li-items"><Link to="/aboutus" id='link'>About Us</Link></li>
+                                <li className="footer-li-items"><Link to="/help" id='link'>Help</Link></li>
+                                <li className="footer-li-items"><Link to="/bookings" id='link'>Bookings</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2>connect</h2>
+                            <div className="footer-icons">
+                                <div className="social-icons-grid">
+                                    <div className='connect-icon-text'><Link to="/blog" className='social-btn'><Instagram className="ig" /></Link> <p className='icon-text'>Instagram</p></div>
+                                    <div className='connect-icon-text'><Link to="/blog" className='social-btn'><Twitter className="x" /></Link> <p className='icon-text'>Twitter</p></div>
+                                    <div className='connect-icon-text'><Link to="/blog" className='social-btn'><Youtube className="yt" /></Link> <p className='icon-text'>YouTube</p></div>
+                                </div>
                             </div>
                         </div>
                     </div>

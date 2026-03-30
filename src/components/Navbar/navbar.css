@@ -16,15 +16,26 @@
 }
 
 .logo-txt {
+  color: #000;
   font-weight: 300;
-  font-size: 1.7rem;
+  font-size: 2.25rem;
   font-family: "Averia Serif Libre", serif;
+  text-decoration: none;
 }
 
 .li-items,
 .auth-login,
 .auth-signup {
   display: none;
+}
+
+.auth-btn-container {
+  display: flex;
+}
+
+.auth-icon {
+  display: flex;
+  margin-right: 10px;
 }
 
 .menu-icon-btn {
@@ -49,7 +60,7 @@
   flex-direction: column;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background: linear-gradient(to bottom right, #91A36F, #2D6A4F);
+  background: linear-gradient(to bottom right, #91a36f, #2d6a4f);
 }
 
 .menu li a {
@@ -68,7 +79,13 @@
   right: 4.25%;
   width: 17px;
   padding: 0.1em;
+  background: none;
+  border: none;
   position: absolute;
+}
+
+.menu-items{
+  margin-top: 10px;
 }
 
 .menu-items a:hover {
@@ -101,6 +118,10 @@
     display: flex;
   }
 
+  .auth-icon {
+    display: none;
+  }
+
   .menu-icon-btn,
   .menu {
     display: none;
@@ -122,9 +143,6 @@
     align-items: center;
     text-decoration: none;
     transition: transform 0.3s ease-in-out;
-  }
-  .navbar-container ul li a:hover {
-    font-weight: 600;
   }
 
   .auth-btn-container {
@@ -169,8 +187,14 @@
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .auth-dropdown h2 {
@@ -222,12 +246,12 @@
   font-weight: 600;
   padding: 0.7rem;
   margin-top: 0.4rem;
-  border-radius: 25px;   /* tera existing button style */
+  border-radius: 25px; /* tera existing button style */
   color: #f8f9fa;
   font-size: 0.88rem;
   letter-spacing: 0.5px;
   transition: opacity 0.2s;
-  background: linear-gradient(to bottom right, #91A36F, #2D6A4F);
+  background: linear-gradient(to bottom right, #91a36f, #2d6a4f);
 }
 
 .auth-submit:hover {
@@ -243,7 +267,7 @@
 }
 
 .auth-toggle-text span {
-  color: #2D6A4F;
+  color: #2d6a4f;
   font-weight: 600;
 }
 
@@ -253,14 +277,13 @@
 
 /* Active state for navbar buttons */
 .auth-login.active {
-  color: #2D6A4F;
-  border: 1.5px solid #2D6A4F;
+  color: #2d6a4f;
+  border: 1.5px solid #2d6a4f;
 }
 
 .auth-signup.active {
-  background-color: #2D6A4F;
+  background-color: #2d6a4f;
 }
-
 
 /* Auth Modal */
 .auth-modal-overlay {
@@ -269,7 +292,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -288,5 +311,23 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  width: fit-content;
   cursor: pointer;
+}
+
+.auth-container h2 {
+  text-align: center;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 }
