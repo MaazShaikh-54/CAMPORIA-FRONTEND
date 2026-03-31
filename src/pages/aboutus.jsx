@@ -1,39 +1,28 @@
 import "../components/AboutUs/aboutus.css";
-import { useEffect } from "react";
 import Navbar from "../components/Navbar/navbar";
 import Footer from "../components/Footer/footer";
+import { CircleCheckBig, CircleUserRound } from 'lucide-react';
 
 const AboutUs = () => {
-    useEffect(() => {
-        const testimonials = [
-            {
-                name: "Mustafa Yilmaz",
-                text: "An incredible experience! The seamless booking and cozy campsites made my trip unforgettable.",
-            },
-            {
-                name: "Sarah Davis",
-                text: "The best way to explore nature without any hassle. The website is intuitive, and the services are top-notch!",
-            },
-            {
-                name: "Avinash Singh",
-                text: "Loved every moment of our adventure. The platform made planning so much easier!",
-            },
-        ];
 
-        const testimonialContainer = document.getElementById("testimonial-list");
-
-        testimonials.forEach((testimonial) => {
-            const testimonialCard = document.createElement("div");
-            testimonialCard.classList.add("testimonial");
-
-            testimonialCard.innerHTML = `
-        <p class="testimonial-text">"${testimonial.text}"</p>
-        <h4 class="testimonial-author">- ${testimonial.name}</h4>
-      `;
-
-            testimonialContainer.appendChild(testimonialCard);
-        });
-    }, []);
+    const testimonials = [
+        {
+            name: "Mustafa Yilmaz",
+            text: "An incredible experience! The seamless booking and cozy campsites made my trip unforgettable.",
+        },
+        {
+            name: "Sarah Davis",
+            text: "The best way to explore nature without any hassle. The website is intuitive, and the services are top-notch!",
+        },
+        {
+            name: "Avinash Singh",
+            text: "Loved every moment of our adventure. The platform made planning so much easier!",
+        },
+        {
+            name: "Param B.",
+            text: "I must recommend this site as i had an amazing experience at the campsite with group of friends. They have the best service!",
+        },
+    ];
 
     return (
         <>
@@ -60,16 +49,26 @@ const AboutUs = () => {
                 <section className="why-choose-us">
                     <h2>Why Choose Us?</h2>
                     <ul>
-                        <li>✅ Hassle-free campsite bookings</li>
-                        <li>✅ Verified and top-rated locations</li>
-                        <li>✅ User reviews and community-driven recommendations</li>
-                        <li>✅ Secure payment and easy cancellation</li>
+                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Hassle-free campsite bookings</li>
+                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Verified and top-rated locations</li>
+                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> User reviews and community-driven recommendations</li>
+                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Secure payment and easy cancellation</li>
                     </ul>
                 </section>
 
                 <section className="testimonials">
                     <h2>What Our Users Say</h2>
-                    <div id="testimonial-list"></div>
+                    <div id="testimonial-list">
+
+                        {testimonials.map((testimonial) => (
+                            <div className="testimonial">
+                                <CircleUserRound strokeWidth={1} size={52} color="#91a36f" />
+                                <p class="testimonial-text">"{testimonial.text}"</p>
+                                <h4 class="testimonial-author">- {testimonial.name}</h4>
+                            </div>
+                        ))
+                        }
+                    </div>
                 </section>
             </div>
             <Footer />
