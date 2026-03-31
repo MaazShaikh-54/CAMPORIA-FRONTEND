@@ -10,3 +10,15 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
   return await axios.post(`${API_URL}/login`, userData);
 };
+
+export const getUserProfile = async (token) => {
+  return await axios.get(`${API_URL}/profile`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export const logoutUser = async (userData) => {
+  return await axios.post(`${API_URL}/logout`, userData);
+}

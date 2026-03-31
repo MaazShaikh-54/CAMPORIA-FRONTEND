@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { loginUser, registerUser } from '../../utils/services/authservice';
 import PropTypes from "prop-types";
 
@@ -19,19 +20,20 @@ const Auth = ({ onSuccess, mode }) => {
     try {
       if (isSignup) {
         await registerUser({ name, email, password });
-        alert("Signup successful");
+        toast.success("Signup successful");
         onSuccess();
       } else {
         const res = await loginUser({ email, password });
         localStorage.setItem("token", res.data.token);
-        alert("Login successful");
+        toast.success("Login successful");
+        localStorage.setItem("token", res.data.token);
         onSuccess();
+        window.location.reload();
       }
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     }
   }
-
 
   return (
     <>
@@ -86,7 +88,7 @@ const Auth = ({ onSuccess, mode }) => {
           {isSignup ? (
             <>Already have an account? <span>Login</span></>
           ) : (
-            <>Don't have an account? <span>Sign Up</span></>
+            <>Don&apos;t have an account? <span>Sign Up</span></>
           )}
         </p>
       </div>
@@ -97,6 +99,7 @@ const Auth = ({ onSuccess, mode }) => {
 
 Auth.propTypes = {
   onSuccess: PropTypes.func.isRequired,
+  mode: PropTypes.oneOf(["login", "signup"]).isRequired,
 };
 
 export default Auth;
