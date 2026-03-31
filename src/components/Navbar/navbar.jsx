@@ -8,6 +8,7 @@ import Auth from '../Authentication/auth.jsx';
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [showAuth, setShowAuth] = useState(false);
+    const [authMode, setAuthMode] = useState("login");
 
     const toggleMenu = () => {
         setMenu(true);
@@ -31,9 +32,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='auth-btn-container'>
-                        <CircleUserRound className="auth-icon" size={32} strokeWidth={1.5} onClick={() => setShowAuth(true)} />
-                        <Button className="auth-login" text="Login" onClick={() => setShowAuth(true)} />
-                        <Button className="auth-signup" text="Sign Up" onClick={() => setShowAuth(true)} />
+                        <CircleUserRound className={`auth-icon`} size={32} strokeWidth={1.5} onClick={() => {setAuthMode("login");setShowAuth(true)}} />
+                        <Button className={`auth-login ${authMode === "login" ? "active" : ""}`} text="Login" onClick={() => {setAuthMode("login");setShowAuth(true)}} />
+                        <Button className={`auth-signup ${authMode === "signup" ? "active" : ""}`} text="Sign Up" onClick={() => {setAuthMode("signup");setShowAuth(true)}} />
                         <button className='menu-icon-btn' onClick={toggleMenu} >
                             <Menu color='#000' size={32} strokeWidth={1.5} className="menu-icon" />
                         </button>
@@ -66,7 +67,7 @@ const Navbar = () => {
                             <X color='#000' />
                         </button>
 
-                        <Auth onSuccess={() => setShowAuth(false)} />
+                        <Auth mode={authMode} onSuccess={() => setShowAuth(false)} />
                     </div>
                 </div>
             )}

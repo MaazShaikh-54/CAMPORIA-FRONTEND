@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { loginUser, registerUser } from '../../utils/services/authservice';
 import PropTypes from "prop-types";
 
-const Auth = ({ onSuccess }) => {
-  const [isSignup, setIsSignup] = useState(false);
+const Auth = ({ onSuccess, mode }) => {
+  const [isSignup, setIsSignup] = useState(mode === "signup");
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setIsSignup(mode === "signup");
+  }, [mode]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
