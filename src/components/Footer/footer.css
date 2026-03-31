@@ -250,15 +250,17 @@ body {
 
   .footer-icons {
     display: flex;
-    overflow: visible;
     justify-content: space-around;
+  }
+
+  .connect-icon-text {
+    overflow: visible;
   }
 
   .social-icons-grid {
     gap: 1.5em;
     display: grid;
     padding: 0.4em 0;
-    overflow: visible;
     grid-template-columns: repeat(3, 1fr);
   }
 
