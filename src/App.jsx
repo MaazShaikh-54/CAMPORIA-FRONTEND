@@ -1,10 +1,10 @@
 import './index.css';
-import Home from './pages/home.jsx';
 import Blog from './pages/blog.jsx';
 import Help from './pages/help.jsx';
 import Detail from './pages/detail.jsx';
-import AboutUs from './pages/aboutus.jsx';
+import About from './pages/about.jsx';
 import Bookings from './pages/bookings.jsx';
+import Campsites from './pages/campsites.jsx';
 import Payment from './components/Payment/payment.jsx';
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -15,12 +15,12 @@ function App() {
   return (
     <>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/" element={<About />} />
+          <Route path="/campsites" element={<Campsites />} />
           <Route path="/help" element={<Help />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/bookings" element={<Bookings />} />
+          <Route path="/detail/:id" element={<Detail />} />
           <Route path="/payment/:id" element={<Payment />} />
         </Routes>
         <ToastContainer />

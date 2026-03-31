@@ -2,7 +2,7 @@ import './navbar.css'
 import { useState } from 'react';
 import Button from '../Button/button'
 import { Link } from "react-router-dom";
-import { CircleUser, CircleUserIcon, CircleUserRound, Menu, Tent, User, X } from 'lucide-react';
+import { CircleUserRound, Backpack, Headset, Menu, Tent, X } from 'lucide-react';
 import Auth from '../Authentication/auth.jsx';
 
 const Navbar = () => {
@@ -24,10 +24,10 @@ const Navbar = () => {
                     </div>
                     <div>
                         <ul>
-                            <li className="li-items"><Link to="/" id='link'>Home</Link></li>
-                            <li className="li-items"><Link to="/blog" id='link'>Blog</Link></li>
-                            <li className="li-items"><Link to="/aboutus" id='link'>About Us</Link></li>
+                            <li className="li-items"><Link to="/" id='link'>About</Link></li>
+                            <li className="li-items"><Link to="/campsites" id='link'>Campsites</Link></li>
                             <li className="li-items"><Link to="/help" id='link'>Help</Link></li>
+                            <li className="li-items"><Link to="/blog" id='link'>Blog</Link></li>
                             <li className="li-items"><Link to="/bookings" id='link'>Bookings</Link></li>
                         </ul>
                     </div>
@@ -43,10 +43,10 @@ const Navbar = () => {
                 {menu && (
                     <div className="menu">
                         <X className='close-btn' onClick={() => { setMenu(false) }} />
-                        <li className="menu-items"><Link to="/" id='link'>Home</Link></li>
-                        <li className="menu-items"><Link to="/blog" id='link'>Blog</Link></li>
-                        <li className="menu-items"><Link to="/aboutus" id='link'>About Us</Link></li>
+                        <li className="menu-items"><Link to="/" id='link'>About</Link></li>
+                        <li className="menu-items"><Link to="/campsites" id='link'>Campsites</Link></li>
                         <li className="menu-items"><Link to="/help" id='link'>Help</Link></li>
+                        <li className="menu-items"><Link to="/blog" id='link'>Blog</Link></li>
                         <li className="menu-items"><Link to="/bookings" id='link'>Bookings</Link></li>
                     </div>
                 )}

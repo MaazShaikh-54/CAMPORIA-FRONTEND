@@ -22,10 +22,10 @@ const Footer = () => {
                         <div>
                             <h2>explore</h2>
                             <ul>
-                                <li className="footer-li-items"><Link to="/" id='link'>Home</Link></li>
-                                <li className="footer-li-items"><Link to="/blog" id='link'>Blog</Link></li>
-                                <li className="footer-li-items"><Link to="/aboutus" id='link'>About Us</Link></li>
+                                <li className="footer-li-items"><Link to="/" id='link'>About</Link></li>
+                                <li className="footer-li-items"><Link to="/campsites" id='link'>Campsites</Link></li>
                                 <li className="footer-li-items"><Link to="/help" id='link'>Help</Link></li>
+                                <li className="footer-li-items"><Link to="/blog" id='link'>Blog</Link></li>
                                 <li className="footer-li-items"><Link to="/bookings" id='link'>Bookings</Link></li>
                             </ul>
                         </div>

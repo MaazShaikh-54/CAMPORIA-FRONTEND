@@ -86,6 +86,7 @@
 
 .menu-items{
   margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .menu-items a:hover {
@@ -138,8 +139,8 @@
   .navbar-container ul li a {
     display: flex;
     color: #0e1726;
-    font-weight: 400;
-    font-size: 1.45rem;
+    font-weight: 500;
+    font-size: 1.4rem;
     align-items: center;
     text-decoration: none;
     transition: transform 0.3s ease-in-out;

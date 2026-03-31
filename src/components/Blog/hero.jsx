@@ -4,23 +4,21 @@ import { FaChevronCircleDown } from "react-icons/fa";
 
 const hero = () => {
   const scroll = () => {
-    document.getElementById("activity")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("about-container")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <div className="home">
-        <p className="hero-txt">
-          Immerse yourself in nature&apos;s beauty at our serene campsites.
+        <div className="hero-txt">
+          <h1>Immerse yourself in the nature&apos;s beauty.</h1>
           <br />
-          Explore, relax, and create memories that last a lifetime.
-          <br />
-          Find your perfect camping spot under the stars. <br />
+          <p>Explore, relax, and create memories under the stars that last a lifetime. </p><br />
           <br />
           <Link to="/" className="hero-btn">
             Book Now!
           </Link>
-        </p>
+        </div>
         <FaChevronCircleDown className="large-icon" onClick={scroll} />
       </div>
     </>

@@ -1,16 +1,15 @@
-import '../index.css'
 import Navbar from '../components/Navbar/navbar'
 import CampsiteList from '../components/Search/search'
 import Footer from '../components/Footer/footer'
 
-const home = () => {
-  return (
-    <>
+const Campsites = () => {
+    return (
+        <>
         <Navbar/>
         <CampsiteList />
         <Footer/>
-    </>
-  )
+        </>
+    )
 }
 
-export default home
+export default Campsites;

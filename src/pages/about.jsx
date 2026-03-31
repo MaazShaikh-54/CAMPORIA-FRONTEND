@@ -1,9 +1,10 @@
-import "../components/AboutUs/aboutus.css";
+import "../components/About/about.css";
 import Navbar from "../components/Navbar/navbar";
+import Hero from '../components/Blog/hero';
 import Footer from "../components/Footer/footer";
 import { CircleCheckBig, CircleUserRound } from 'lucide-react';
 
-const AboutUs = () => {
+const About = () => {
 
     const testimonials = [
         {
@@ -27,7 +28,8 @@ const AboutUs = () => {
     return (
         <>
             <Navbar />
-            <div className="about-container">
+            <Hero/>
+            <div id="about-container" className="about-container">
                 <section className="about-intro">
                     <h1>About Us</h1>
                     <p>
@@ -76,4 +78,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default About;
