@@ -13,8 +13,11 @@
 .about-container h1,
 .about-container h2 {
   font-size: 1.85em;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-align: center;
   padding-top: 10px;
+  color: #91a36f;
 }
 
 .about-container p {

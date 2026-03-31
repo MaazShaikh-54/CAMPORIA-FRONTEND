@@ -11,8 +11,7 @@ const hero = () => {
     <>
       <div className="home">
         <div className="hero-txt">
-          <h1>Immerse yourself in the nature&apos;s beauty.</h1>
-          <br />
+          <h1>Immerse yourself in the nature&apos;s beauty</h1>
           <p>Explore, relax, and create memories under the stars that last a lifetime. </p><br />
           <br />
           <Link to="/campsites" className="hero-btn">
