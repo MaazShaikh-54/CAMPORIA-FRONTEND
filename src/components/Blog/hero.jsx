@@ -15,7 +15,7 @@ const hero = () => {
           <br />
           <p>Explore, relax, and create memories under the stars that last a lifetime. </p><br />
           <br />
-          <Link to="/" className="hero-btn">
+          <Link to="/campsites" className="hero-btn">
             Book Now!
           </Link>
         </div>

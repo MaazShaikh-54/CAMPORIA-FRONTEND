@@ -28,7 +28,7 @@ const About = () => {
     return (
         <>
             <Navbar />
-            <Hero/>
+            <Hero />
             <div id="about-container" className="about-container">
                 <section className="about-intro">
                     <h1>About Us</h1>
@@ -51,10 +51,10 @@ const About = () => {
                 <section className="why-choose-us">
                     <h2>Why Choose Us?</h2>
                     <ul>
-                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Hassle-free campsite bookings</li>
-                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Verified and top-rated locations</li>
-                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> User reviews and community-driven recommendations</li>
-                        <li style={{ alignItems: "center" }}><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Secure payment and easy cancellation</li>
+                        <li ><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Hassle-free campsite bookings</li>
+                        <li><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Verified and top-rated locations</li>
+                        <li><CircleCheckBig color="#7aac3d" strokeWidth={3} /> Secure payment and easy cancellation</li>
+                        <li><CircleCheckBig color="#7aac3d" strokeWidth={3} /> User reviews and community-driven recommendations</li>
                     </ul>
                 </section>
 

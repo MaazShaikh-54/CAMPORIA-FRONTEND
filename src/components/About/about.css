@@ -13,14 +13,20 @@
 .about-container h1,
 .about-container h2 {
   font-size: 1.85em;
+  text-align: center;
+  padding-top: 10px;
 }
 
 .about-container p {
   font-size: 1.45em;
+  text-align: justify;
+  padding: 8px;
 }
 
 .about-container ul {
   list-style: none;
+  align-items: center;
+  padding: 0 8px;
 }
 
 .about-container ul li {
