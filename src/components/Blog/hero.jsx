@@ -1,6 +1,6 @@
 import "./blog.css";
 import { Link } from "react-router-dom";
-import { ArrowRight, Triangle } from 'lucide-react'
+import { Triangle } from 'lucide-react'
 
 const hero = () => {
   // const text = isDarkMode
@@ -11,13 +11,13 @@ const hero = () => {
     <>
       <div className="home">
         <div className="hero-txt">
-          <h1>Immerse yourself in <span style={{ color: "#91a36f" }}>the nature&apos;s beauty</span></h1>
-          <p style={{ color: "#2d6a4f", fontSize: "1.5rem", fontFamily: `Elms Sans, sans-serif` }}>Explore, relax, and create memories under endless skies that last a lifetime. </p>
+          <h1>Immerse yourself <br /> in <span style={{ color: "#91a36f" }}>the nature&apos;s beauty</span></h1>
+          <p className="hero-txt-tagline" style={{  }}>Explore, relax, and create memories under endless skies that last a lifetime. </p>
           <div className="hero-image"></div>
 
           <Link to="/campsites" className="hero-btn">
 
-            <p className="hero-btn-spinner" style={{  }}>
+            <p className="hero-btn-spinner">
 
               <svg viewBox="0 0 100 100" className="spinning-svg">
 
@@ -37,12 +37,12 @@ const hero = () => {
             </p>
           </Link>
           <div className="camporia-info-container">
-            <div className="camporia-info"><p className="numerical-info"><span>10K+</span></p><p className="text-info">Happy <br />campers</p></div>
+            <div className="camporia-info"><p className="numerical-info"><span>10</span>K+</p><p className="text-info">Happy <br />campers</p></div>
             <div className="camporia-info"><p className="numerical-info"><span>4.9</span>/5</p><p className="text-info">Google <br /> reviews</p></div>
             <div className="camporia-info"><p className="numerical-info"><span>100</span>%</p><p className="text-info">Eco <br /> friendly</p></div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };
