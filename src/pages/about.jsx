@@ -62,11 +62,11 @@ const About = () => {
                     <h2>What Our Users Say</h2>
                     <div id="testimonial-list">
 
-                        {testimonials.map((testimonial) => (
-                            <div className="testimonial">
+                        {testimonials.map((testimonial, index) => (
+                            <div className="testimonial" key={testimonial.name || index}>
                                 <CircleUserRound strokeWidth={1} size={52} color="#91a36f" />
-                                <p class="testimonial-text">"{testimonial.text}"</p>
-                                <h4 class="testimonial-author">- {testimonial.name}</h4>
+                                <p className="testimonial-text">"{testimonial.text}"</p>
+                                <h4 className="testimonial-author">- {testimonial.name}</h4>
                             </div>
                         ))
                         }
