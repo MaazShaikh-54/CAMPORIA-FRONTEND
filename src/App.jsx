@@ -9,23 +9,34 @@ import Campsites from './pages/campsites.jsx';
 import Payment from './components/Payment/payment.jsx';
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import ProtectedRoute from "./utils/ProtectedRoute.jsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import HostDashboard from "./pages/host/HostDashboard.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   return (
     <>
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/campsites" element={<Campsites />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/bookings" element={<Bookings />} />
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/campsites" element={<Campsites />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/bookings" element={<Bookings />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/payment/:id" element={<Payment />} />
+        <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Route>
+        <Route element={<ProtectedRoute allowedRoles={["host"]} />}>
+          <Route path="/host/dashboard" element={<HostDashboard />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/payment/:id" element={<Payment />} />
-        </Routes>
-        <ToastContainer />
+        </Route>
+      </Routes>
+      <ToastContainer />
     </>
   );
 };
