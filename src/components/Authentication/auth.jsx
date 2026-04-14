@@ -36,6 +36,7 @@ const Auth = ({ onSuccess, mode }) => {
         localStorage.setItem("role", res.data.role);
 
         toast.success("Login successful");
+        console.log(localStorage.getItem("token"));
 
         const role = res.data.role;
 
