@@ -14,7 +14,7 @@ const Profile = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            setUser(res.data.user);
+            setUser(res.data);
         } catch (err) {
             console.error("Error fetching user profile:", err);
         }
@@ -27,9 +27,10 @@ const Profile = () => {
     return (
         <>
             <Navbar />
-            <div style={{ minHeight: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ minHeight: "auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
                 <h1 style={{color: "#2d6a4f"}}>Profile Page</h1>
-                <p>{user.Profile}</p>
+                <p style={{color: "#2d6a4f"}}>Welcome, {user.name} ({user.role})</p>
+                <p style={{color: "#2d6a4f"}}></p>
             </div>
             <Footer />
         </>
