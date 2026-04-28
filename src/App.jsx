@@ -11,6 +11,12 @@ import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import AdminStatistics from './pages/admin/AdminStatistics.jsx';
+import AdminCampsites from './pages/admin/AdminCampsites.jsx';
+import AdminBookings from './pages/admin/AdminBookings.jsx';
+import AdminSupport from './pages/admin/AdminSupport.jsx';
+import AdminBlog from './pages/admin/AdminBlog.jsx';
+import DashboardUsers from './pages/admin/DashboardUsers.jsx'
 import HostDashboard from "./pages/host/HostDashboard.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -27,7 +33,14 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/payment/:id" element={<Payment />} />
         <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />}>
+            <Route path="statistics" element={<AdminStatistics />} />
+            <Route path="campsites" element={<AdminCampsites />} />
+            <Route path="bookings" element={<AdminBookings />} />
+            <Route path="users" element={<DashboardUsers />} />
+            <Route path="blog" element={<AdminBlog />} />
+            <Route path="support" element={<AdminSupport />} />
+          </Route>
         </Route>
         <Route element={<ProtectedRoute allowedRoles={["host"]} />}>
           <Route path="/host/dashboard" element={<HostDashboard />} />
