@@ -16,7 +16,8 @@ import AdminCampsites from './pages/admin/AdminCampsites.jsx';
 import AdminBookings from './pages/admin/AdminBookings.jsx';
 import AdminSupport from './pages/admin/AdminSupport.jsx';
 import AdminBlog from './pages/admin/AdminBlog.jsx';
-import DashboardUsers from './pages/admin/DashboardUsers.jsx'
+import AdminUsers from './pages/admin/AdminUsers.jsx'
+import AdminHosts from './pages/admin/AdminHosts.jsx'
 import HostDashboard from "./pages/host/HostDashboard.jsx";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,7 +38,8 @@ function App() {
             <Route path="statistics" element={<AdminStatistics />} />
             <Route path="campsites" element={<AdminCampsites />} />
             <Route path="bookings" element={<AdminBookings />} />
-            <Route path="users" element={<DashboardUsers />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="hosts" element={<AdminHosts />} />
             <Route path="blog" element={<AdminBlog />} />
             <Route path="support" element={<AdminSupport />} />
           </Route>

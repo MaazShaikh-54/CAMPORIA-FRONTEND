@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
-import { PanelRightOpen, PanelRightClose, LayoutDashboard, TentTree, CalendarCheck, BookUser, BadgeQuestionMark, Newspaper } from "lucide-react";
+import { PanelRightOpen, MapPinned, PanelRightClose, LayoutDashboard, TentTree, CalendarCheck, BookUser, BadgeQuestionMark, Newspaper } from "lucide-react";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -15,9 +15,10 @@ export default function AdminDashboard() {
 
   const adminModules = [
   { name: "Dashboard", icon: LayoutDashboard, path: "/admin/statistics" },
-  { name: "Campsites", icon: TentTree, path: "/admin/campsites" },
+  { name: "Campsites", icon: MapPinned, path: "/admin/campsites" },
   { name: "Bookings", icon: CalendarCheck, path: "/admin/bookings" },
   { name: "Users", icon: BookUser, path: "/admin/users" },
+  { name: "Hosts", icon: TentTree, path: "/admin/hosts" },
   { name: "Blog", icon: Newspaper, path: "/admin/blog" },
   { name: "Support", icon: BadgeQuestionMark, path: "/admin/support" },
 ];
