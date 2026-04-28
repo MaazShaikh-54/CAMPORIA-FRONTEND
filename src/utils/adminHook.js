@@ -2,8 +2,8 @@ import axios from "axios";
 
 const API_URL = "https://camporia-backend.onrender.com/admin";
 
-export const getUsers = async (userData) => {
-    return await axios.get(`${API_URL}/users`, userData);
+export const getUsers = async (config) => {
+    return await axios.get(`${API_URL}/users`, config);
 }
 
 export const updateUser = async (userData) => {
