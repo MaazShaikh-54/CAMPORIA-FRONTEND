@@ -45,7 +45,7 @@ function App() {
           </Route>
         </Route>
         <Route element={<ProtectedRoute allowedRoles={["host"]} />}>
-          <Route path="/host/dashboard" element={<HostDashboard />} />
+          <Route path="/host/statistics" element={<HostDashboard />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />

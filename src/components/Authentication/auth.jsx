@@ -41,9 +41,9 @@ const Auth = ({ onSuccess, mode }) => {
         const role = res.data.role;
 
         if (role === "admin") {
-          navigate("/admin/dashboard");
+          navigate("/admin/statistics");
         } else if (role === "host") {
-          navigate("/host/dashboard");
+          navigate("/host/statistics");
         } else {
           navigate("/");
         }
