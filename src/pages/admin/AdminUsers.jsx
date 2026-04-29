@@ -41,28 +41,30 @@ const AdminUsers = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Users</h1>
-            <p>Welcome to the Users Page! Here you can manage users, view reports, and perform administrative tasks.</p>
-            <table>
+        <div style={{ fontSize: "18px", color: "#000", padding: "0px 10px", background: "#fff" }}>
+
+            <h1 style={{ margin: "10px 0px" }}>Users</h1>
+
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0px", borderRadius: "10px", overflow: "hidden", textAlign: "center", border: "1px solid #ccc" }}>
+
                 <thead>
-                    <tr>
-                        <th>No</th>
+                    <tr style={{ background: "#2d6a4f", color: "#fff" }}>
+                        <th style={{ padding: "10px" }}>No</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Country</th>
+                        <th>Role</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     {users.map((user, index) => (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
+                        <tr key={index} style={{}}>
+                            <td style={{ padding: "10px" }}>{index + 1}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
-                            <td><Pencil color="#daa520" size={20} strokeWidth={1.25} /></td>
+                            <td><Pencil color="#fff" fill="#2d6a4f" size={20} strokeWidth={1.25} /></td>
                             <td><Trash2 onClick={() => handleDeleteUser(user._id)} color="#b21807" size={20} strokeWidth={1.25} /></td>
                         </tr>
                     ))}
