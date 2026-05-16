@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button/button'
 import { Link } from "react-router-dom";
-import { CircleUserRound, Menu, Tent, X, LogOut, Backpack } from 'lucide-react';
+import { CircleUserRound, Menu, Tent, X, LogOut, Backpack, Bell, BellOff } from 'lucide-react';
 import Auth from '../Authentication/auth.jsx';
 
 const Navbar = () => {
@@ -14,6 +14,7 @@ const Navbar = () => {
     const [authMode, setAuthMode] = useState("login");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const [showProfileNotifications, setShowProfileNotifications] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -54,6 +55,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='auth-btn-container'>
+                        <div className='notifications-icon'>
+                            <Bell className={`notification-icon`} size={32} strokeWidth={1.5} onClick={() => setShowProfileNotifications(!showProfileNotifications)} />
+                        </div>
+
                         {isLoggedIn ? (
                             <CircleUserRound className={`auth-icon`} size={32} strokeWidth={1.5} onClick={() => { handleLogout }} />
                         ) : (
@@ -104,12 +109,25 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
+
+            {showProfileNotifications && (
+                <div className="profile-notification-overlay" onClick={() => setShowProfileNotifications(!showProfileNotifications)}>
+                    <div className="notification-menu" onClick={(e) => e.stopPropagation()}>
+                        <div className='notification-count'  style={{ color: "#2d6a4f", fontSize: "14px", fontWeight: "700", letterSpacing: "0.25px" }}>0 Notifications</div>
+
+                        <div style={{ display: "flex", alignItems: "center", gap: "1px", width: "100%" }}>
+                            <BellOff strokeWidth={1} size={18} />
+                            <p style={{ padding: "10px", fontSize: "16px", color: "#555", width: "100%" }}> No new notifications</p>
+                        </div>
+                    </div>
+                </div>
+            )}
             {showProfileMenu && (
                 <div className="profile-menu-overlay" onClick={() => setShowProfileMenu(false)}>
                     <div className="profile-menu" onClick={(e) => e.stopPropagation()}>
                         <p className='profile-menu-option' onClick={() => { navigate('/profile') }}><CircleUserRound /> <p>Profile</p></p>
                         <p className='profile-menu-option' onClick={() => { navigate('/bookings') }}><Backpack /> <p>Bookings</p></p>
-                        <p className='profile-menu-option' onClick={handleLogout}><LogOut color='#904e4e' /> <p style={{color: "#904e4e"}}>Logout</p></p>
+                        <p className='profile-menu-option' onClick={handleLogout}><LogOut color='#904e4e' /> <p style={{ color: "#904e4e" }}>Logout</p></p>
                     </div>
                 </div>
             )}
