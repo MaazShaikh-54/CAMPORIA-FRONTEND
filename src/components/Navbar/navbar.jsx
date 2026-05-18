@@ -55,10 +55,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='auth-btn-container'>
-                        <div className='notifications-icon'>
+        
+                        {isLoggedIn && <div className='notifications-icon'>
                             <Bell className={`notification-icon`} size={32} strokeWidth={1.5} onClick={() => setShowProfileNotifications(!showProfileNotifications)} />
-                        </div>
-
+                        </div>}
                         {isLoggedIn ? (
                             <CircleUserRound className={`auth-icon`} size={32} strokeWidth={1.5} onClick={() => { handleLogout }} />
                         ) : (
