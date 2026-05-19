@@ -71,6 +71,10 @@ const Payment = () => {
                 checkIn,
                 checkOut,
                 personCount,
+                contactDetails: {
+                    fullName: document.getElementById("name").value,
+                    phone,
+                },
             };
             const res = await axios.post(
                 "https://camporia-backend.onrender.com/journeys/create-journey",
