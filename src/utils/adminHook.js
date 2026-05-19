@@ -28,6 +28,17 @@ export const deleteCampsite = async (id, config) => {
     return await axios.delete(`${ADMIN_API_URL}/delete-campsite/${id}`, config);
 }
 
+//Journey management
+export const getJourneys = async (config) => {
+    return await axios.get(`${ADMIN_API_URL}/journeys`, config);
+}
+export const updateJourney = async (id, journeyData, config) => {
+    return await axios.put(`${ADMIN_API_URL}/update-journey/${id}`, journeyData, config);
+}
+export const deleteJourney = async (id, config) => {
+    return await axios.delete(`${ADMIN_API_URL}/delete-journey/${id}`, config);
+}
+
 //Campsite
 export const getCampsitesById = async (id) => {
     try {
@@ -38,3 +49,15 @@ export const getCampsitesById = async (id) => {
         throw error;
     }
 };
+
+//Journey
+export const getJourneysById = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/journeys/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching journey by ID:", error);
+        throw error;
+    }
+};
+
