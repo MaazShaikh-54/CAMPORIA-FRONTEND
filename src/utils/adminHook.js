@@ -61,3 +61,6 @@ export const getJourneysById = async (id) => {
     }
 };
 
+export const getUserJourneys = async (config) => {
+    return await axios.get(`${API_URL}/journeys/my-journeys`, config);
+}
