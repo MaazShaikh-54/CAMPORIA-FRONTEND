@@ -85,7 +85,7 @@ const Payment = () => {
             return true;
         } catch (err) {
             console.error("Error submitting journey:", err);
-            alert("Booking failed: " + (err.response?.data?.message || "Unknown error"));
+            alert("Journey failed: " + (err.response?.data?.message || "Unknown error"));
             return false;
         }
     };
@@ -94,14 +94,14 @@ const Payment = () => {
         const success = await submitJourney();
         if (!success) return;
         alert("Your adventure awaits!");
-        navigate(`/bookings`);
+        navigate(`/journeys`);
     };
 
     return (
         <>
             <Navbar />
             <h1 className='pay-heading'>Payment</h1>
-            <h1 className='booking-title'>Booking camp at {campsite.name}</h1>
+            <h1 className='journey-title'>Journey at {campsite.name}</h1>
             <div className='payment'>
                 <form className="userinfo">
 

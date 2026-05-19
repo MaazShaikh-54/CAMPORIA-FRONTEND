@@ -3,7 +3,7 @@ import Blog from './pages/blog.jsx';
 import Help from './pages/help.jsx';
 import Detail from './pages/detail.jsx';
 import About from './pages/about.jsx';
-import Bookings from './pages/bookings.jsx';
+import Journeys from './pages/journeys.jsx';
 import Profile from './pages/profile.jsx';
 import Campsites from './pages/campsites.jsx';
 import Payment from './components/Payment/payment.jsx';
@@ -13,7 +13,7 @@ import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import AdminStatistics from './pages/admin/AdminStatistics.jsx';
 import AdminCampsites from './pages/admin/AdminCampsites.jsx';
-import AdminBookings from './pages/admin/AdminBookings.jsx';
+import AdminJourneys from './pages/admin/AdminJourneys.jsx';
 import AdminSupport from './pages/admin/AdminSupport.jsx';
 import AdminBlog from './pages/admin/AdminBlog.jsx';
 import AdminUsers from './pages/admin/AdminUsers.jsx'
@@ -30,14 +30,14 @@ function App() {
         <Route path="/campsites" element={<Campsites />} />
         <Route path="/help" element={<Help />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/bookings" element={<Bookings />} />
+        <Route path="/journeys" element={<Journeys />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/payment/:id" element={<Payment />} />
         <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
           <Route path="/admin" element={<AdminDashboard />}>
             <Route path="statistics" element={<AdminStatistics />} />
             <Route path="campsites" element={<AdminCampsites />} />
-            <Route path="bookings" element={<AdminBookings />} />
+            <Route path="journeys" element={<AdminJourneys />} />
             <Route path="users" element={<AdminUsers />} />
             <Route path="hosts" element={<AdminHosts />} />
             <Route path="blog" element={<AdminBlog />} />

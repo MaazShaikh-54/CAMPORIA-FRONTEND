@@ -51,7 +51,7 @@ const Navbar = () => {
                             <li className="li-items"><Link to="/campsites" id='link'>Campsites</Link></li>
                             <li className="li-items"><Link to="/help" id='link'>Help</Link></li>
                             <li className="li-items"><Link to="/blog" id='link'>Blog</Link></li>
-                            <li className="li-items"><Link to="/bookings" id='link'>Bookings</Link></li>
+                            <li className="li-items"><Link to="/journeys" id='link'>Journeys</Link></li>
                         </ul>
                     </div>
                     <div className='auth-btn-container'>
@@ -85,7 +85,7 @@ const Navbar = () => {
                         <li className="menu-items"><Link to="/campsites" id='link'>Campsites</Link></li>
                         <li className="menu-items"><Link to="/help" id='link'>Help</Link></li>
                         <li className="menu-items"><Link to="/blog" id='link'>Blog</Link></li>
-                        <li className="menu-items"><Link to="/bookings" id='link'>Bookings</Link></li>
+                        <li className="menu-items"><Link to="/journeys" id='link'>Journeys</Link></li>
                     </div>
                 )}
             </header>
@@ -126,7 +126,7 @@ const Navbar = () => {
                 <div className="profile-menu-overlay" onClick={() => setShowProfileMenu(false)}>
                     <div className="profile-menu" onClick={(e) => e.stopPropagation()}>
                         <p className='profile-menu-option' onClick={() => { navigate('/profile') }}><CircleUserRound /> <p>Profile</p></p>
-                        <p className='profile-menu-option' onClick={() => { navigate('/bookings') }}><Backpack /> <p>Bookings</p></p>
+                        <p className='profile-menu-option' onClick={() => { navigate('/journeys') }}><Backpack /> <p>Journeys</p></p>
                         <p className='profile-menu-option' onClick={handleLogout}><LogOut color='#904e4e' /> <p style={{ color: "#904e4e" }}>Logout</p></p>
                     </div>
                 </div>

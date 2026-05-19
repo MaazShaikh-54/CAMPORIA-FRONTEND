@@ -9,7 +9,7 @@ const faqs = [
     },
     {
       question: 'Q. What is the cancellation policy?',
-      answer: 'Once a booking is made, it cannot be cancelled. Therefore, guests are kindly requested to confirm their travel dates and the number of members before proceeding with the payment.',
+      answer: 'Once a Journey (booking) is made, it cannot be cancelled. Therefore, guests are kindly requested to confirm their travel dates and the number of members before proceeding with the payment.',
     },
     {
       question: 'Q. What kind of accommodations are there?',
@@ -24,8 +24,8 @@ const faqs = [
       answer: 'Campfire policies vary by campsite. Some campsites allow campfires in designated areas, while others do not permit them. Please check the campsite details or contact us for more information.',
     },
     {
-      question: 'Q. Are there any discounts available for group bookings?',
-      answer: 'We offer discounts for group bookings at select campsites. Please contact us for more information about group booking discounts and availability.',
+      question: 'Q. Are there any discounts available for group journeys (bookings)?',
+      answer: 'We offer discounts for group journeys (bookings) at select campsites. Please contact us for more information about group journey (booking) discounts and availability.',
     },
   ];
 

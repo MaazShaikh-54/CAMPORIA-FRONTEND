@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const adminModules = [
   { name: "Dashboard", icon: LayoutDashboard, path: "/admin/statistics" },
   { name: "Campsites", icon: MapPinned, path: "/admin/campsites" },
-  { name: "Bookings", icon: CalendarCheck, path: "/admin/bookings" },
+  { name: "Journeys", icon: CalendarCheck, path: "/admin/journeys" },
   { name: "Users", icon: BookUser, path: "/admin/users" },
   { name: "Hosts", icon: TentTree, path: "/admin/hosts" },
   { name: "Blog", icon: Newspaper, path: "/admin/blog" },
