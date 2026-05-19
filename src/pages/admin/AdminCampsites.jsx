@@ -34,6 +34,8 @@ const AdminCampsites = () => {
                 campsiteSize: formData.get("campsiteSize"),
                 capacity: parseInt(formData.get("capacity")),
                 isAvailable: formData.get("isAvailable") === "true",
+                checkInTime: formData.get("checkInTime"),
+                checkOutTime: formData.get("checkOutTime"),
             };
             await addCampsite(newCampsite, { headers: { Authorization: `Bearer ${token}` } });
             setShowAddModal(false);
@@ -60,6 +62,8 @@ const AdminCampsites = () => {
                 campsiteSize: formData.get("campsiteSize"),
                 capacity: parseInt(formData.get("capacity")),
                 isAvailable: formData.get("isAvailable") === "true",
+                checkInTime: formData.get("checkInTime"),
+                checkOutTime: formData.get("checkOutTime"),
             };
             await updateCampsite(editingCampsite._id, updatedData, { headers: { Authorization: `Bearer ${token}` } });
             setEditingCampsite(null);
@@ -111,6 +115,8 @@ const AdminCampsites = () => {
                             <th style={thStyle}>Campsite Type</th>
                             <th style={thStyle}>Campsite Size</th>
                             <th style={thStyle}>Capacity</th>
+                            <th style={thStyle}>Check-in Time</th>
+                            <th style={thStyle}>Check-out Time</th>
                             <th style={thStyle}>Availability</th>
                             <th style={thStyle}>Reviews</th>
                             <th style={thStyle}>Edit</th>
@@ -130,6 +136,8 @@ const AdminCampsites = () => {
                                 <td style={tdStyle}>{campsite.campsiteType}</td>
                                 <td style={tdStyle}>{campsite.campsiteSize}</td>
                                 <td style={tdStyle}>{campsite.capacity}</td>
+                                <td style={tdStyle}>{campsite.checkInTime}</td>
+                                <td style={tdStyle}>{campsite.checkOutTime}</td>
                                 <td style={tdStyle}>{campsite.isAvailable ? "Yes" : "No"}</td>
                                 <td style={tdStyle}>{campsite.reviews?.length || 0}</td>
                                 <td style={tdStyle}><Pencil onClick={() => setEditingCampsite(campsite)} color="#fff" fill="#2d6a4f" size={20} strokeWidth={1.25} style={{ cursor: "pointer" }} /></td>
@@ -156,6 +164,8 @@ const AdminCampsites = () => {
                             <input type="text" name="campsiteType" defaultValue={editingCampsite.campsiteType} placeholder="Campsite Type" required style={inputStyle} />
                             <input type="text" name="campsiteSize" defaultValue={editingCampsite.campsiteSize} placeholder="Campsite Size" required style={inputStyle} />
                             <input type="number" name="capacity" defaultValue={editingCampsite.capacity} placeholder="Capacity" required style={inputStyle} />
+                            <input type="text" name="checkInTime" defaultValue={editingCampsite.checkInTime} placeholder="Check-in Time" required style={inputStyle} />
+                            <input type="text" name="checkOutTime" defaultValue={editingCampsite.checkOutTime} placeholder="Check-out Time" required style={inputStyle} />
                             <select name="isAvailable" defaultValue={String(editingCampsite.isAvailable)} required style={inputStyle}>
                                 <option value="true">Available</option>
                                 <option value="false">Not Available</option>
@@ -182,6 +192,8 @@ const AdminCampsites = () => {
                             <input type="text" name="campsiteType" placeholder="Campsite Type" required style={inputStyle} />
                             <input type="text" name="campsiteSize" placeholder="Campsite Size" required style={inputStyle} />
                             <input type="number" name="capacity" placeholder="Capacity" required style={inputStyle} />
+                            <input type="text" name="checkInTime" placeholder="Check-in Time" required style={inputStyle} />
+                            <input type="text" name="checkOutTime" placeholder="Check-out Time" required style={inputStyle} />
                             <select name="isAvailable" defaultValue="true" required style={inputStyle}>
                                 <option value="true">Available</option>
                                 <option value="false">Not Available</option>
