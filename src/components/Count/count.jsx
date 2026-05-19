@@ -1,12 +1,19 @@
 import './count.css'
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Button from '../Button/button';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Count() {
+export default function Count({ onCountChange, checkIn, checkOut }) {
     const { id } = useParams();
     const [campsite, setCampsite] = useState({ price: 0 });
+
+    Count.propTypes = {
+        onCountChange: PropTypes.func,
+        checkIn: PropTypes.string,
+        checkOut: PropTypes.string,
+    };
     const [person, setPerson] = useState(1);
     const [priceVal, setPriceVal] = useState(0);
     const [addDisabled, setAddDisabled] = useState(false);
@@ -26,34 +33,63 @@ export default function Count() {
     }, [id]);
 
     const addPerson = () => {
-        if (person === 5) {
-            setAddDisabled(true);
-            return;
-        }
+        if (person >= campsite.capacity) { setAddDisabled(true); return; }
         const newPersonCount = person + 1;
         setPerson(newPersonCount);
-
-        setPriceVal(priceVal + campsite.price);
-
-        if (newPersonCount === 5) setAddDisabled(true);
+        if (newPersonCount >= campsite.capacity) setAddDisabled(true);
         setSubDisabled(false);
-    }
+        onCountChange?.(newPersonCount);
+    };
 
     const subPerson = () => {
         if (person === 1) return;
-
         const newPersonCount = person - 1;
         setPerson(newPersonCount);
-
-        setPriceVal(priceVal - campsite.price);
-
         if (newPersonCount === 1) setSubDisabled(true);
         setAddDisabled(false);
-    }
+        onCountChange?.(newPersonCount);
+    };
+
+    // const calculatePrice = (basePrice, persons, checkIn, checkOut) => {
+    //     if (!checkIn || !checkOut) return basePrice * persons;
+
+    //     const start = new Date(checkIn);
+    //     const end = new Date(checkOut);
+    //     let nights = Math.max(1, Math.round((end - start) / (1000 * 60 * 60 * 24)));
+    //     let total = 0;
+
+    //     for (let i = 0; i < nights; i++) {
+    //         const day = new Date(start);
+    //         day.setDate(day.getDate() + i);
+    //         const dayOfWeek = day.getDay();
+    //         const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    //         total += basePrice * (isWeekend ? 1.5 : 1);
+    //     }
+
+    //     return total * persons;
+    // };
 
     useEffect(() => {
-        console.log("Person:", person, "Price:", priceVal, "Add Disabled:", addDisabled, "Sub Disabled:", subDisabled);
-    }, [person, priceVal, addDisabled, subDisabled]);
+        if (!campsite.price) return;
+        if (!checkIn || !checkOut) {
+            setPriceVal(campsite.price * person);
+            return;
+        }
+        const fetchPrice = async () => {
+            try {
+                const res = await axios.post("https://camporia-backend.onrender.com/journeys/preview-price", {
+                    campsite: id,
+                    checkIn,
+                    checkOut,
+                    personCount: person,
+                });
+                setPriceVal(res.data.totalPrice);
+            } catch {
+                setPriceVal(campsite.price * person);
+            }
+        };
+        fetchPrice();
+    }, [person, campsite.price, checkIn, checkOut, id]);
 
     return (
         <>
