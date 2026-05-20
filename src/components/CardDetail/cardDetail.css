@@ -1,107 +1,309 @@
-.detail-container{
-    margin: 1rem; 
+.detail-container {
+    margin: 1rem;
     color: #333;
     display: block;
 }
 
-.detail-image{
+.detail-image-section {
     width: 100%;
+}
+
+.detail-main-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.detail-image {
+    width: 100%;
+    height: 260px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
+    display: block;
 }
 
-.detail-text{
+.image-overlay-top {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.favorite-btn {
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.favorite-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.detail-preview-images {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+}
+
+.preview-thumb {
     width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, opacity 0.2s;
+    opacity: 0.65;
+    display: block;
 }
 
-.title-campsite{
-    margin-top: 1rem;
-    font-size: 1.3rem;
+.preview-thumb:hover {
+    opacity: 1;
+}
+
+.preview-thumb.active-thumb {
+    border-color: #2d6a4f;
+    opacity: 1;
+}
+
+.reviews-section {
+    margin-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
+}
+
+.reviews-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #222;
+}
+
+.review-item {
+    background: #f8f9f6;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.review-user {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2d6a4f;
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.review-comment {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.no-reviews {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+}
+
+.detail-text {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.title-campsite {
+    margin-top: 0;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
 .detail-p {
     display: flex;
+    align-items: center;
+    gap: 0.3rem;
     margin: 0.3rem 0;
-    font-size: 1.01rem;
+    font-size: 1rem;
 }
 
-.price{
+.location-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: #2d6a4f;
+}
+
+.detail-amenities,
+.detail-feature {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.price {
     margin: 0 0.25rem;
+    color: #2d6a4f;
+    font-weight: bold;
 }
 
-.detail-btn{
+.detail-btn {
     border: none;
     color: white;
     font-size: 1rem;
     border-radius: 5px;
-    padding: 0.25rem 0.7rem;
+    padding: 0.5rem 1.2rem;
     background-color: #2d6a4f;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    display: inline-block;
 }
 
-.description{
+.description {
     font-style: italic;
+    color: #555;
 }
 
-.furth_detail{
+.furth_detail {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     list-style: none;
     margin-top: 1.2rem;
     font-size: 0.9rem;
-    justify-content: space-between ;
+    padding: 0;
 }
 
-.clock-icon{
+.clock-icon {
     float: left;
     margin: 0.1rem 0.3rem 0.1rem 0;
-    height: 1.2rem;
+    height: 1.1rem;
+    flex-shrink: 0;
 }
 
-.highlight{
-    color: #2d6a4f  ;
+.highlight {
+    color: #2d6a4f;
     font-weight: bold;
+    margin-right: 0.3rem;
+}
+
+.additional-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.additional-feature {
+    font-size: 0.85rem;
+    background: #f0f4f1;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    color: #2d6a4f;
+    font-weight: 500;
 }
 
 @media screen and (min-width: 500px) {
-    .detail-container{
-        margin: 2rem; 
+    .detail-container {
+        margin: 2rem;
         display: flex;
+        gap: 2.5rem;
+        align-items: flex-start;
     }
-    
-    .detail-image{
-        width: 40%;
+
+    .detail-image-section {
+        width: 45%;
+        flex-shrink: 0;
     }
-    
-    .detail-text{
-        width: 68%;
-        margin-left: 5rem;
+
+    .detail-image {
+        height: 320px;
     }
-    
-    .title-campsite{
+
+    .detail-text {
+        width: 55%;
+        margin-top: 0;
+    }
+
+    .title-campsite {
         font-size: 2rem;
     }
-    
+
     .detail-p {
-        margin: 1rem 0;
+        margin: 0.4rem 0;
+        font-size: 1.1rem;
+    }
+
+    .detail-amenities,
+    .detail-feature {
+        margin: 0.6rem 0;
+        font-size: 1rem;
+    }
+
+    .detail-btn {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.4rem;
+    }
+
+    .furth_detail {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .clock-icon {
+        height: 1.3rem;
+    }
+
+    .reviews-title {
         font-size: 1.2rem;
     }
-    
-    .price{
-        margin: 0 0.5rem;
+}
+
+@media screen and (min-width: 900px) {
+    .detail-container {
+        margin: 2.5rem 4rem;
     }
-    
-    .detail-btn{
-        display: block;
-        cursor: pointer;
+
+    .detail-image {
+        height: 380px;
     }
-    
-    .furth_detail{
-        margin-top: 2rem;
-        font-size: 1.2rem;
-    }
-    
-    .clock-icon{
-        margin: 0.1rem;
-        height: 1.5rem;
+
+    .title-campsite {
+        font-size: 2.3rem;
     }
 }
