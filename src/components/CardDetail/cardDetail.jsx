@@ -46,6 +46,10 @@ export default function Detail() {
                                 <Heart size={20} fill={isFavorite ? "#e63946" : "transparent"} color={isFavorite ? "#e63946" : "#fff"} strokeWidth={2} />
                             </button>
                         </div>
+                        <div className="image-overlay-bottom">
+                            <MapPin size={14} color="#fff" />
+                            <span>{campsite.location}</span>
+                        </div>
                     </div>
 
                     {images.length > 1 && (
@@ -86,7 +90,6 @@ export default function Detail() {
 
                 <div className="detail-text">
                     <h2 className='title-campsite'>{campsite.name}</h2>
-                    <p className='detail-p'><MapPin className='location-icon' /> {campsite.location}</p>
                     <p className='detail-p description'>{campsite.description}</p>
                     <p className='detail-p'><b>Price: </b> <span className='price'>₹{campsite.price.toFixed(2)}</span> per person</p>
                     <p className='detail-amenities'><b>Amenities: </b> {campsite.amenities?.join(', ') || 'None'}</p>
