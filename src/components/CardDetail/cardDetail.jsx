@@ -103,6 +103,7 @@ export default function Detail() {
                         <p className='additional-feature'>Season: {campsite.season}</p>
                         <p className='additional-feature'>Type: {campsite.campsiteType}</p>
                         <p className='additional-feature'>Size: {campsite.campsiteSize}</p>
+                        <p className='additional-feature'>Capacity: {campsite.capacity}</p>
                     </div>
                 </div>
             </div>
