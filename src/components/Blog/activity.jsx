@@ -1,48 +1,110 @@
+const activities = [
+  {
+    id: "campfire",
+    title: "Camp Fire",
+    description: "Gather around the warm glow of a crackling fire, sharing stories under the night sky.",
+    images: [1, 2, 3, 4, 5].map(n => `/assets/activities/campfire${n}.jpg`),
+  },
+  {
+    id: "cycling",
+    title: "Cycling",
+    description: "Ride through scenic trails, enjoying the fresh air and breathtaking landscapes.",
+    images: [1, 2].map(n => `/assets/activities/cycling${n}.jpg`),
+  },
+  {
+    id: "hiking",
+    title: "Hiking",
+    description: "Trek across rugged terrains, discovering hidden waterfalls and stunning viewpoints.",
+    images: [1, 2, 3].map(n => `/assets/activities/hiking${n}.jpg`),
+  },
+  {
+    id: "stargazing",
+    title: "Star Gazing",
+    description: "Witness a mesmerizing night sky, filled with countless twinkling stars.",
+    images: [
+      "/assets/activities/stargazing1.jpg",
+      "/assets/activities/stargazing2.jpeg",
+    ],
+  },
+  {
+    id: "food",
+    title: "Dining",
+    description: "Savor delicious, freshly prepared meals that fuel your adventure.",
+    images: [1, 2, 3].map(n => `/assets/activities/food${n}.jpg`),
+  },
+  {
+    id: "exploringvillages",
+    title: "Exploring Region",
+    description: "Immerse yourself in local culture, history, and traditions as you wander through charming villages.",
+    images: [
+      "/assets/activities/exploringvillages1.jpg",
+      "/assets/activities/exploringvillages2.jpg",
+      "/assets/activities/exploringvillages3.jpg",
+      "/assets/activities/exploringvillages4.jpg",
+      "/assets/activities/exploringvillages5.jpeg",
+    ],
+  },
+];
+
 export default function Activity() {
   return (
-    <>
-      <div className="activity-container" id="activity">
-        <h1>Activities</h1>
-        <section className="Campfire activity-section">
-          <h2>Camp fire</h2><p><i> - Gather around the warm glow of a crackling fire, sharing stories under the night sky.</i></p>
-            <img src="/assets/activities/campfire1.jpg" alt="Camp Fire - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/campfire2.jpg" alt="Camp Fire - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/campfire3.jpg" alt="Camp Fire - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/campfire4.jpg" alt="Camp Fire - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/campfire5.jpg" alt="Camp Fire - activity" loading="lazy" decoding="async"  />
-        </section>
-        <section className="Cycling activity-section">
-          <h2>Cycling</h2><p><i> - Ride through scenic trails, enjoying the fresh air and breathtaking landscapes.</i></p>
-            <img src="/assets/activities/cycling1.jpg" alt="Cycling - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/cycling2.jpg" alt="Cycling - activity" loading="lazy" decoding="async"  />
-        </section>
-        <section className="Hiking activity-section">
-          <h2>Hiking</h2><p><i> - Trek across rugged terrains, discovering hidden waterfalls and stunning viewpoints.</i></p>
-            <img src="/assets/activities/hiking1.jpg" alt="Hiking - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/hiking2.jpg" alt="Hiking - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/hiking3.jpg" alt="Hiking - activity" loading="lazy" decoding="async"  />
-        </section>
-        <section className="Stargazing activity-section">
-          <h2>Star Gazing</h2><p><i> - Witness a mesmerizing night sky, filled with countless twinkling stars.</i></p>
-            <img src="/assets/activities/stargazing1.jpg" alt="Stargazing - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/stargazing2.jpeg" alt="Stargazing - activity" loading="lazy" decoding="async"  />
-        </section>
-        <section className="Food activity-section">
-          <h2>Dining</h2><p><i> -  Savor delicious, freshly prepared meals that fuel your adventure.</i></p>
-            <img src="/assets/activities/food1.jpg" alt="Food - post" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/food2.jpg" alt="Food - post" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/food3.jpg" alt="Food - post" loading="lazy" decoding="async"  />
-        </section>
-        <section className="Exploringvillages activity-section">
-          <h2>Exploring Region</h2><p><i> - Immerse yourself in local culture, history, and traditions as you wander through charming villages.</i></p>
-            <img src="/assets/activities/exploringvillages1.jpg" alt="Exploring Region - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/exploringvillages2.jpg" alt="Exploring Region - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/exploringvillages3.jpg" alt="Exploring Region - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/exploringvillages4.jpg" alt="Exploring Region - activity" loading="lazy" decoding="async"  />
-            <img src="/assets/activities/exploringvillages5.jpeg" alt="Exploring Region - activity" loading="lazy" decoding="async"  />
-        </section>
-        <div></div>
-      </div>
-    </>
+    <div id="activity" style={{ padding: "2rem 1rem", maxWidth: "1100px", margin: "0 auto" }}>
+      <h1 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "0.3rem", color: "#1a1a1a" }}>Activities</h1>
+      <p style={{ color: "#777", marginBottom: "2.5rem", fontSize: "1rem" }}>Experiences that make every trip unforgettable</p>
+
+      {activities.map((activity, i) => (
+        <div
+          key={activity.id}
+          style={{
+            display: "flex",
+            flexDirection: i % 2 === 0 ? "row" : "row-reverse",
+            gap: "2rem",
+            marginBottom: "3.5rem",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <div style={{ flex: "1 1 280px", minWidth: "0" }}>
+            <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#2d6a4f", marginBottom: "0.5rem" }}>
+              {activity.title}
+            </h2>
+            <p style={{ color: "#555", fontStyle: "italic", fontSize: "1rem", lineHeight: 1.6 }}>
+              {activity.description}
+            </p>
+          </div>
+
+          <div
+            style={{
+              flex: "2 1 340px",
+              display: "grid",
+              gridTemplateColumns: activity.images.length === 1
+                ? "1fr"
+                : activity.images.length === 2
+                ? "1fr 1fr"
+                : "1fr 1fr 1fr",
+              gap: "8px",
+            }}
+          >
+            {activity.images.map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`${activity.title} - ${idx + 1}`}
+                loading="lazy"
+                decoding="async"
+                style={{
+                  width: "100%",
+                  height: "160px",
+                  objectFit: "cover",
+                  borderRadius: "8px",
+                  display: "block",
+                  gridColumn: activity.images.length === 5 && idx === 4 ? "span 2" : "span 1",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
