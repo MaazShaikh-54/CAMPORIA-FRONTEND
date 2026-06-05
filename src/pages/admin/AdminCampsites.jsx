@@ -238,7 +238,6 @@ const AdminCampsites = () => {
     }
 
     return (
-        // <div style={{ fontSize: "16px", color: "#000", padding: "0px 10px", background: "#fff" }}>
         <div className="admin-campsites">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
                 <h1 style={{ margin: "10px 0px" }}>Campsites</h1>
