@@ -238,9 +238,11 @@ const AdminCampsites = () => {
     }
 
     return (
+        // <div style={{ fontSize: "16px", color: "#000", padding: "0px 10px", background: "#fff" }}>
         <div className="admin-campsites">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
                 <h1 style={{ margin: "10px 0px" }}>Campsites</h1>
+                {/* <button onClick={() => setShowAddModal(true)} style={{ background: "#2d6a4f", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer" }}>Add Campsite</button> */}
                 <button
                     onClick={() => setShowAddModal(true)}
                     className="admin-button"
@@ -249,7 +251,9 @@ const AdminCampsites = () => {
                 </button>
             </div>
 
+            {/* <div style={{ overflowX: "auto", borderRadius: "10px", border: "1px solid #ccc", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}> */}
             <div className="admin-table-wrapper">
+                {/* <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center", minWidth: "1200px" }}> */}
                 <table className="admin-table">
                     <thead>
                         <tr style={{ background: "#2d6a4f", color: "#fff" }}>
@@ -271,6 +275,32 @@ const AdminCampsites = () => {
                             <th>Delete</th>
                         </tr>
                     </thead>
+                    {/* <tbody>
+                        {displayedCampsites.map((campsite, index) => (
+                            <tr key={campsite._id} style={{ borderBottom: "1px solid #eee" }}>
+                                <td style={tdStyle}>{index + 1}</td>
+                                <td style={tdStyle}>{campsite.name}</td>
+                                <td style={tdStyle}>{campsite.location}</td>
+                                <td style={tdStyle}>₹{Number(campsite.price || 0).toFixed(2)}</td>
+                                <td style={tdStyle}><img loading="lazy" decoding="async" src={
+    Array.isArray(campsite.imageUrl)
+        ? campsite.imageUrl[0] || "/placeholder.jpg"
+        : campsite.imageUrl || "/placeholder.jpg"
+} alt={campsite.name} style={{ width: "80px", height: "60px", objectFit: "cover", borderRadius: "4px" }} /></td>
+                                <td style={{ ...tdStyle, maxWidth: "160px", whiteSpace: "normal" }}>{Array.isArray(campsite.feature) ? campsite.feature.join(", ") : campsite.feature}</td>
+                                <td style={{ ...tdStyle, maxWidth: "160px", whiteSpace: "normal" }}>{Array.isArray(campsite.amenities) ? campsite.amenities.join(", ") : campsite.amenities}</td>
+                                <td style={tdStyle}>{campsite.campsiteType}</td>
+                                <td style={tdStyle}>{campsite.campsiteSize}</td>
+                                <td style={tdStyle}>{campsite.capacity}</td>
+                                <td style={tdStyle}>{campsite.checkInTime}</td>
+                                <td style={tdStyle}>{campsite.checkOutTime}</td>
+                                <td style={tdStyle}>{campsite.isAvailable ? "Yes" : "No"}</td>
+                                <td style={tdStyle}>{campsite.reviews?.length || 0}</td>
+                                <td style={tdStyle}><Pencil onClick={() => setEditingCampsite(campsite)} color="#fff" fill="#2d6a4f" size={20} strokeWidth={1.25} style={{ cursor: "pointer" }} /></td>
+                                <td style={tdStyle}><Trash2 onClick={() => handleDeleteCampsite(campsite._id)} color="#b21807" size={20} strokeWidth={1.25} style={{ cursor: "pointer" }} /></td>
+                            </tr>
+                        ))}
+                    </tbody> */}
                     <tbody>
                         {displayedCampsites.length === 0 ? (
                             <tr>
@@ -316,7 +346,9 @@ const AdminCampsites = () => {
             </div>
 
             {editingCampsite && (
+                // <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000 }}>
                 <div className="admin-modal-overlay">
+                    {/* <div style={{ background: "#fff", padding: "20px", borderRadius: "10px", width: "400px", maxHeight: "90vh", overflowY: "auto", position: "relative" }}> */}
                     <div className="admin-modal">
                         <X onClick={() => setEditingCampsite(null)} size={20} style={{ position: "absolute", top: 15, right: 15, cursor: "pointer" }} />
                         <h2 style={{ marginBottom: "20px" }}>Edit Campsite</h2>
