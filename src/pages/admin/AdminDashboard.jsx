@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
-import Footer from "../../components/Footer/footer";
 import { PanelRightOpen, MapPinned, PanelRightClose, LayoutDashboard, TentTree, CalendarCheck, BookUser, BadgeQuestionMark, Newspaper } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -26,7 +25,7 @@ export default function AdminDashboard() {
   return (
     <>
       <Navbar />
-      <div className="admin-dashboard" style={{ color: "#000", display: "flex" }}>
+      <div className="admin-dashboard" style={{ color: "#000", display: "flex", overflow: "hidden", height: "calc(100vh - 70px)" }}>
 
         <div className="leftside-bar" style={{ background: "#2d6a4f", height: "100%", width: "auto", display: "block", padding: "20px" }}>
 
@@ -48,11 +47,10 @@ export default function AdminDashboard() {
 
         </div>
 
-        <div style={{ flex: 1, padding: "20px" }}>
+        <div style={{ flex: 1, padding: "20px", overflowY: "auto", height: "100%" }}>
           <Outlet />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
