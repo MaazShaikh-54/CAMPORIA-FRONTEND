@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from 'prop-types';
 import { getCampsites, addCampsite, updateCampsite, deleteCampsite } from "../../utils/adminHook.js";
-import { Trash2, Pencil, X, Eye } from 'lucide-react';
+import {
+    Trash2,
+    Pencil,
+    X,
+    Eye,
+    Info,
+    Image,
+    Tent,
+    IndianRupee,
+    Clock3,
+} from 'lucide-react';
 import './admin-campsites.css';
 
 const CampsiteRow = React.memo(
@@ -241,7 +251,6 @@ const AdminCampsites = () => {
         <div className="admin-campsites">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
                 <h1 style={{ margin: "10px 0px" }}>Campsites</h1>
-                {/* <button onClick={() => setShowAddModal(true)} style={{ background: "#2d6a4f", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer" }}>Add Campsite</button> */}
                 <button
                     onClick={() => setShowAddModal(true)}
                     className="admin-button"
@@ -250,9 +259,7 @@ const AdminCampsites = () => {
                 </button>
             </div>
 
-            {/* <div style={{ overflowX: "auto", borderRadius: "10px", border: "1px solid #ccc", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}> */}
             <div className="admin-table-wrapper">
-                {/* <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center", minWidth: "1200px" }}> */}
                 <table className="admin-table">
                     <thead>
                         <tr style={{ background: "#2d6a4f", color: "#fff" }}>
@@ -274,32 +281,6 @@ const AdminCampsites = () => {
                             <th>Delete</th>
                         </tr>
                     </thead>
-                    {/* <tbody>
-                        {displayedCampsites.map((campsite, index) => (
-                            <tr key={campsite._id} style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={tdStyle}>{index + 1}</td>
-                                <td style={tdStyle}>{campsite.name}</td>
-                                <td style={tdStyle}>{campsite.location}</td>
-                                <td style={tdStyle}>₹{Number(campsite.price || 0).toFixed(2)}</td>
-                                <td style={tdStyle}><img loading="lazy" decoding="async" src={
-    Array.isArray(campsite.imageUrl)
-        ? campsite.imageUrl[0] || "/placeholder.jpg"
-        : campsite.imageUrl || "/placeholder.jpg"
-} alt={campsite.name} style={{ width: "80px", height: "60px", objectFit: "cover", borderRadius: "4px" }} /></td>
-                                <td style={{ ...tdStyle, maxWidth: "160px", whiteSpace: "normal" }}>{Array.isArray(campsite.feature) ? campsite.feature.join(", ") : campsite.feature}</td>
-                                <td style={{ ...tdStyle, maxWidth: "160px", whiteSpace: "normal" }}>{Array.isArray(campsite.amenities) ? campsite.amenities.join(", ") : campsite.amenities}</td>
-                                <td style={tdStyle}>{campsite.campsiteType}</td>
-                                <td style={tdStyle}>{campsite.campsiteSize}</td>
-                                <td style={tdStyle}>{campsite.capacity}</td>
-                                <td style={tdStyle}>{campsite.checkInTime}</td>
-                                <td style={tdStyle}>{campsite.checkOutTime}</td>
-                                <td style={tdStyle}>{campsite.isAvailable ? "Yes" : "No"}</td>
-                                <td style={tdStyle}>{campsite.reviews?.length || 0}</td>
-                                <td style={tdStyle}><Pencil onClick={() => setEditingCampsite(campsite)} color="#fff" fill="#2d6a4f" size={20} strokeWidth={1.25} style={{ cursor: "pointer" }} /></td>
-                                <td style={tdStyle}><Trash2 onClick={() => handleDeleteCampsite(campsite._id)} color="#b21807" size={20} strokeWidth={1.25} style={{ cursor: "pointer" }} /></td>
-                            </tr>
-                        ))}
-                    </tbody> */}
                     <tbody>
                         {displayedCampsites.length === 0 ? (
                             <tr>
@@ -345,60 +326,390 @@ const AdminCampsites = () => {
             </div>
 
             {editingCampsite && (
-                // <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000 }}>
                 <div className="admin-modal-overlay">
-                    {/* <div style={{ background: "#fff", padding: "20px", borderRadius: "10px", width: "400px", maxHeight: "90vh", overflowY: "auto", position: "relative" }}> */}
                     <div className="admin-modal">
                         <X onClick={() => setEditingCampsite(null)} size={20} style={{ position: "absolute", top: 15, right: 15, cursor: "pointer" }} />
                         <h2 style={{ marginBottom: "20px" }}>Edit Campsite</h2>
                         <form onSubmit={handleUpdateCampsite}>
-                            <input type="text" name="name" defaultValue={editingCampsite.name} placeholder="Name" required />
-                            <input type="text" name="location" defaultValue={editingCampsite.location} placeholder="Location" required />
-                            <input type="number" name="price" defaultValue={editingCampsite.price} placeholder="Price" required />
-                            <input type="text" name="description" defaultValue={editingCampsite.description} placeholder="Description" required />
-                            <input type="text" name="imageUrl" defaultValue={Array.isArray(editingCampsite.imageUrl) ? editingCampsite.imageUrl.join(", ") : editingCampsite.imageUrl} placeholder="Image URLs (comma separated)" required />
-                            <input type="text" name="feature" defaultValue={Array.isArray(editingCampsite.feature) ? editingCampsite.feature.join(", ") : editingCampsite.feature} placeholder="Features (comma separated)" />
-                            <input type="text" name="amenities" defaultValue={Array.isArray(editingCampsite.amenities) ? editingCampsite.amenities.join(", ") : editingCampsite.amenities} placeholder="Amenities (comma separated)" />
-                            <input type="text" name="campsiteType" defaultValue={editingCampsite.campsiteType} placeholder="Campsite Type" required />
-                            <input type="text" name="campsiteSize" defaultValue={editingCampsite.campsiteSize} placeholder="Campsite Size" required />
-                            <input type="number" name="capacity" defaultValue={editingCampsite.capacity} placeholder="Capacity" required />
-                            <input type="text" name="checkInTime" defaultValue={editingCampsite.checkInTime} placeholder="Check-in Time" required />
-                            <input type="text" name="checkOutTime" defaultValue={editingCampsite.checkOutTime} placeholder="Check-out Time" required />
-                            <select name="isAvailable" defaultValue={String(editingCampsite.isAvailable)} required>
-                                <option value="true">Available</option>
-                                <option value="false">Not Available</option>
-                            </select>
-                            <button type="submit" style={{ background: "#2d6a4f", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer", width: "100%" }}>Update Campsite</button>
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Info size={16} />
+                                    <span>Basic Information</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        defaultValue={editingCampsite.name}
+                                        placeholder="Name"
+                                        required
+                                    />
+
+                                    <input
+                                        type="text"
+                                        name="location"
+                                        defaultValue={editingCampsite.location}
+                                        placeholder="Location"
+                                        required
+                                    />
+                                </div>
+
+                                <textarea
+                                    name="description"
+                                    defaultValue={editingCampsite.description}
+                                    placeholder="Description"
+                                    rows={4}
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Image size={16} />
+                                    <span>Images & Content</span>
+                                </div>
+
+                                <input
+                                    type="text"
+                                    name="imageUrl"
+                                    defaultValue={
+                                        Array.isArray(editingCampsite.imageUrl)
+                                            ? editingCampsite.imageUrl.join(", ")
+                                            : editingCampsite.imageUrl
+                                    }
+                                    placeholder="Image URLs (comma separated)"
+                                    required
+                                />
+
+                                <input
+                                    type="text"
+                                    name="feature"
+                                    defaultValue={
+                                        Array.isArray(editingCampsite.feature)
+                                            ? editingCampsite.feature.join(", ")
+                                            : editingCampsite.feature
+                                    }
+                                    placeholder="Features (comma separated)"
+                                />
+
+                                <input
+                                    type="text"
+                                    name="amenities"
+                                    defaultValue={
+                                        Array.isArray(editingCampsite.amenities)
+                                            ? editingCampsite.amenities.join(", ")
+                                            : editingCampsite.amenities
+                                    }
+                                    placeholder="Amenities (comma separated)"
+                                />
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Tent size={16} />
+                                    <span>Campsite Details</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <input
+                                        type="text"
+                                        name="campsiteType"
+                                        defaultValue={editingCampsite.campsiteType}
+                                        placeholder="Campsite Type"
+                                        required
+                                    />
+
+                                    <input
+                                        type="text"
+                                        name="campsiteSize"
+                                        defaultValue={editingCampsite.campsiteSize}
+                                        placeholder="Campsite Size"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <IndianRupee size={16} />
+                                    <span>Pricing & Capacity</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <input
+                                        type="number"
+                                        name="price"
+                                        defaultValue={editingCampsite.price}
+                                        placeholder="Price"
+                                        required
+                                    />
+
+                                    <input
+                                        type="number"
+                                        name="capacity"
+                                        defaultValue={editingCampsite.capacity}
+                                        placeholder="Capacity"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Clock3 size={16} />
+                                    <span>Availability</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <input
+                                        type="text"
+                                        name="checkInTime"
+                                        defaultValue={editingCampsite.checkInTime}
+                                        placeholder="Check-in Time"
+                                        required
+                                    />
+
+                                    <input
+                                        type="text"
+                                        name="checkOutTime"
+                                        defaultValue={editingCampsite.checkOutTime}
+                                        placeholder="Check-out Time"
+                                        required
+                                    />
+                                </div>
+
+                                <select
+                                    name="isAvailable"
+                                    defaultValue={String(editingCampsite.isAvailable)}
+                                    required
+                                >
+                                    <option value="true">Available</option>
+                                    <option value="false">Not Available</option>
+                                </select>
+                            </div>
+
+                            <div className="modal-actions">
+                                <button type="submit">
+                                    Update Campsite
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
             )}
 
             {showAddModal && (
-                // <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.5)", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000 }}>
                 <div className="admin-modal-overlay">
-                    {/* <div style={{ background: "#fff", padding: "20px", borderRadius: "10px", width: "400px", maxHeight: "90vh", overflowY: "auto", position: "relative" }}> */}
                     <div className="admin-modal">
                         <X onClick={() => setShowAddModal(false)} size={20} style={{ position: "absolute", top: 15, right: 15, cursor: "pointer" }} />
                         <h2 style={{ marginBottom: "20px" }}>Add Campsite</h2>
                         <form onSubmit={handleAddCampsite}>
-                            <input type="text" name="name" placeholder="Name" required />
-                            <input type="text" name="location" placeholder="Location" required />
-                            <input type="number" name="price" placeholder="Price" required />
-                            <input type="text" name="description" placeholder="Description" required />
-                            <input type="text" name="imageUrl" placeholder="Image URLs (comma separated)" required />
-                            <input type="text" name="feature" placeholder="Features (comma separated)" />
-                            <input type="text" name="amenities" placeholder="Amenities (comma separated)" />
-                            <input type="text" name="campsiteType" placeholder="Campsite Type" required />
-                            <input type="text" name="campsiteSize" placeholder="Campsite Size" required />
-                            <input type="number" name="capacity" placeholder="Capacity" required />
-                            <input type="text" name="checkInTime" placeholder="Check-in Time" required />
-                            <input type="text" name="checkOutTime" placeholder="Check-out Time" required />
-                            <select name="isAvailable" defaultValue="true" required>
-                                <option value="true">Available</option>
-                                <option value="false">Not Available</option>
-                            </select>
-                            <button type="submit" style={{ background: "#2d6a4f", color: "#fff", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer", width: "100%" }}>Add Campsite</button>
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Info size={16} />
+                                    <span>Basic Information</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Name"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: Himalayan Riverside Camp
+                                        </small>
+                                    </div>
+
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="location"
+                                            placeholder="Location"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: Spiti Valley, Himachal Pradesh
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div className="field-group">
+                                    <textarea
+                                        name="description"
+                                        placeholder="Description"
+                                        rows={4}
+                                        required
+                                    />
+                                    <small className="field-hint">
+                                        Short overview of campsite, surroundings and experience.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Image size={16} />
+                                    <span>Images & Content</span>
+                                </div>
+
+                                <div className="field-group">
+                                    <input
+                                        type="text"
+                                        name="imageUrl"
+                                        placeholder="Image URLs (comma separated)"
+                                        required
+                                    />
+                                    <small className="field-hint">
+                                        Example: https://img1.jpg, https://img2.jpg
+                                    </small>
+                                </div>
+
+                                <div className="field-group">
+                                    <input
+                                        type="text"
+                                        name="feature"
+                                        placeholder="Features (comma separated)"
+                                    />
+                                    <small className="field-hint">
+                                        Example: River View, Bonfire, Mountain View
+                                    </small>
+                                </div>
+
+                                <div className="field-group">
+                                    <input
+                                        type="text"
+                                        name="amenities"
+                                        placeholder="Amenities (comma separated)"
+                                    />
+                                    <small className="field-hint">
+                                        Example: Parking, Washroom, WiFi, Electricity
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Tent size={16} />
+                                    <span>Campsite Details</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="campsiteType"
+                                            placeholder="Campsite Type"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: Tent, Glamping, RV Site
+                                        </small>
+                                    </div>
+
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="campsiteSize"
+                                            placeholder="Campsite Size"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: Small, Medium, Large
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <IndianRupee size={16} />
+                                    <span>Pricing & Capacity</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <div className="field-group">
+                                        <input
+                                            type="number"
+                                            name="price"
+                                            placeholder="Price"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: 2500 (per night)
+                                        </small>
+                                    </div>
+
+                                    <div className="field-group">
+                                        <input
+                                            type="number"
+                                            name="capacity"
+                                            placeholder="Capacity"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Maximum guests allowed.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="form-section">
+                                <div className="form-section-title">
+                                    <Clock3 size={16} />
+                                    <span>Availability</span>
+                                </div>
+
+                                <div className="form-grid two-column">
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="checkInTime"
+                                            placeholder="Check-in Time"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: 02:00 PM
+                                        </small>
+                                    </div>
+
+                                    <div className="field-group">
+                                        <input
+                                            type="text"
+                                            name="checkOutTime"
+                                            placeholder="Check-out Time"
+                                            required
+                                        />
+                                        <small className="field-hint">
+                                            Example: 11:00 AM
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div className="field-group">
+                                    <select
+                                        name="isAvailable"
+                                        defaultValue="true"
+                                        required
+                                    >
+                                        <option value="true">Available</option>
+                                        <option value="false">Not Available</option>
+                                    </select>
+
+                                    <small className="field-hint">
+                                        Controls campsite visibility for booking.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div className="modal-actions">
+                                <button type="submit">
+                                    Add Campsite
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

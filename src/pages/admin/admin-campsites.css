@@ -6,16 +6,18 @@
 }
 
 .admin-campsites {
+    padding: 0 10px;
     font-size: 16px;
     color: #000;
-    padding: 0 10px;
     background: #fff;
 }
 
+/* Table */
+
 .admin-table-wrapper {
     overflow-x: auto;
-    border-radius: 10px;
     border: 1px solid #ccc;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -29,13 +31,13 @@
 .admin-table th,
 .admin-table td {
     padding: 12px 20px;
-    white-space: nowrap;
     text-align: center;
+    white-space: nowrap;
 }
 
 .admin-table th {
-    background: #2d6a4f;
     color: #fff;
+    background: #2d6a4f;
 }
 
 .admin-table-row {
@@ -47,77 +49,62 @@
 }
 
 .wrap-cell {
-    max-width: 250px;
     width: 250px;
-    white-space: nowrap;
+    max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.admin-button {
-    background: #2d6a4f;
-    color: #fff;
+/* Buttons */
+
+.admin-button,
+.pagination button,
+.admin-modal button[type="submit"],
+.carousel-controls button {
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: #fff;
     cursor: pointer;
+    background: #2d6a4f;
     transition: opacity 0.2s ease;
 }
 
-.admin-button:hover {
+.admin-button:hover,
+.pagination button:hover:not(:disabled),
+.admin-modal button[type="submit"]:hover,
+.carousel-controls button:hover {
     opacity: 0.9;
 }
 
-.admin-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+.admin-button {
+    padding: 10px 20px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.admin-modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.admin-modal {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: min(400px, 90vw);
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
 }
 
 .pagination button {
     padding: 8px 16px;
-    border: none;
     border-radius: 6px;
-    cursor: pointer;
-    background: #2d6a4f;
-    color: #fff;
-    transition: opacity 0.2s ease;
 }
 
-.pagination button:hover:not(:disabled) {
-    opacity: 0.9;
+.admin-modal button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+
+.carousel-controls button {
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .pagination button:disabled {
@@ -130,24 +117,138 @@
     font-weight: 500;
 }
 
+/* Modal */
+
+.admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.admin-modal {
+    position: relative;
+    width: min(700px, 95vw);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    scrollbar-width: thin;
+    scrollbar-color: #2d6a4f #f1f1f1;
+}
+
+.admin-modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.admin-modal::-webkit-scrollbar-thumb {
+    background: #2d6a4f;
+    border-radius: 10px;
+}
+
+.admin-modal::-webkit-scrollbar-thumb:hover {
+    background: #24543e;
+}
+
+.admin-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-modal input,
+.admin-modal select,
+.admin-modal textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.admin-modal textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form Layout */
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #2d6a4f;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.form-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.form-grid.two-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.modal-actions {
+    position: sticky;
+    bottom: 0;
+
+    padding-top: 12px;
+    background: #fff;
+}
+
+/* Image Preview */
+
 .image-preview-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+
     margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background: transparent;
 }
 
 .image-preview-modal {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 900px;
-    width: 90vw;
     position: relative;
+
+    width: 90vw;
+    max-width: 900px;
+
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
 }
 
 .image-preview-close {
@@ -172,11 +273,36 @@
     margin-top: 15px;
 }
 
-.carousel-controls button {
-    background: #2d6a4f;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
+/* Responsive */
+
+@media (max-width: 640px) {
+    .form-grid.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-modal {
+        width: 95vw;
+        padding: 18px;
+    }
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-hint {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.field-group:focus-within .field-hint {
+    max-height: 40px;
+    opacity: 1;
+    margin-top: 4px;
 }
