@@ -91,7 +91,7 @@ input[type="date"]:nth-of-type(1) {
   border-right: 1px solid #ccc !important;
 }
 
-input[type="number"] {
+/* input[type="number"] {
   width: 28% !important;
   padding: 0.6em 0.25em;
   font-size: 0.8rem;
@@ -99,7 +99,7 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-}
+} */
 
 .search-input:focus {
   outline: none;
@@ -190,7 +190,7 @@ input[type="number"] {
     border-left: 1px solid #ccc !important;
   }
 
-  input[type="number"] {
+  /* input[type="number"] {
     width: 15% !important;
     padding: 1.75em 0.8em;
     font-size: 0.9rem;
@@ -199,7 +199,7 @@ input[type="number"] {
     border-bottom-right-radius: 25px !important;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-  }
+  } */
 
   .search-input {
     width: 50%;
