@@ -65,7 +65,7 @@ const About = () => {
                         {testimonials.map((testimonial, index) => (
                             <div className="testimonial" key={testimonial.name || index}>
                                 <CircleUserRound strokeWidth={1} size={52} color="#91a36f" />
-                                <p className="testimonial-text">"{testimonial.text}"</p>
+                                <p className="testimonial-text">{testimonial.text}</p>
                                 <h4 className="testimonial-author">- {testimonial.name}</h4>
                             </div>
                         ))
